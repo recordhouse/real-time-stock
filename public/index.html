@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>국내주식 실시간 급등주 TOP 20 | KOSPI·KOSDAQ 상승률 순위</title>
+    <meta
+      name="description"
+      content="국내주식 실시간 급등주 TOP 20을 상승률 기준으로 확인하세요. KOSPI와 KOSDAQ 종목의 현재가, 전일대비, 등락률, 거래량을 빠르게 비교할 수 있습니다."
+    />
+    <meta
+      name="keywords"
+      content="국내주식 급등주, 실시간 급등주, 주식 TOP 20, 코스피 급등주, 코스닥 급등주, 상승률 순위, 국내 주식 시세"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Real Time Stock" />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="canonical" href="__SITE_URL__/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:site_name" content="국내주식 실시간 급등주 TOP 20" />
+    <meta property="og:title" content="국내주식 실시간 급등주 TOP 20" />
+    <meta property="og:description" content="KOSPI·KOSDAQ 상승률 상위 종목의 현재가, 전일대비, 등락률, 거래량을 한눈에 확인하세요." />
+    <meta property="og:url" content="__SITE_URL__/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="국내주식 실시간 급등주 TOP 20" />
+    <meta name="twitter:description" content="상승률 기준 국내 주식 급등 종목을 실시간 대시보드로 확인하세요." />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "국내주식 실시간 급등주 TOP 20",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "ko-KR",
+        "description": "KOSPI와 KOSDAQ의 상승률 상위 종목을 현재가, 전일대비, 등락률, 거래량과 함께 보여주는 국내주식 급등주 대시보드입니다.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "KRW"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="pageTitle">
+        <div class="hero-copy">
+          <p class="eyebrow">Korea Market Movers</p>
+          <h1 id="pageTitle">국내주식 실시간 급등주 TOP 20</h1>
+          <p class="summary">KOSPI와 KOSDAQ에서 상승률이 높은 종목의 현재가, 전일대비, 거래량을 빠르게 비교하세요.</p>
+          <div class="trust-row" aria-label="서비스 특징">
+            <span>60초 자동 갱신</span>
+            <span>상승률 기준 정렬</span>
+            <span>시장별 필터</span>
+          </div>
+        </div>
+
+        <div class="status-panel" aria-live="polite">
+          <div>
+            <span class="label">데이터 상태</span>
+            <strong id="sourceLabel">연결 중</strong>
+          </div>
+          <div>
+            <span class="label">최근 업데이트</span>
+            <strong id="updatedAt">--:--:--</strong>
+          </div>
+          <button id="refreshButton" type="button" aria-label="새로고침">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="market-strip" aria-label="시장 요약">
+        <div>
+          <span class="label">평균 상승률</span>
+          <strong id="avgRate">--</strong>
+        </div>
+        <div>
+          <span class="label">최고 상승률</span>
+          <strong id="maxRate">--</strong>
+        </div>
+        <div>
+          <span class="label">총 거래량</span>
+          <strong id="totalVolume">--</strong>
+        </div>
+      </section>
+
+      <section class="content-heading">
+        <div>
+          <p class="eyebrow">Live Ranking</p>
+          <h2>상승률 상위 종목</h2>
+        </div>
+        <p>급등주는 변동성이 큽니다. 투자 판단 전 공시, 거래대금, 호가 흐름을 함께 확인하세요.</p>
+      </section>
+
+      <section class="toolbar" aria-label="급등주 필터">
+        <div class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="종목명 또는 코드 검색" autocomplete="off" />
+        </div>
+        <div class="segments" role="tablist" aria-label="시장 선택">
+          <button class="segment active" type="button" data-market="ALL">전체</button>
+          <button class="segment" type="button" data-market="KOSPI">KOSPI</button>
+          <button class="segment" type="button" data-market="KOSDAQ">KOSDAQ</button>
+        </div>
+      </section>
+
+      <section class="table-wrap" aria-label="급등주 목록">
+        <table>
+          <thead>
+            <tr>
+              <th>순위</th>
+              <th>종목</th>
+              <th>현재가</th>
+              <th>전일대비</th>
+              <th>등락률</th>
+              <th>거래량</th>
+            </tr>
+          </thead>
+          <tbody id="stockRows">
+            <tr>
+              <td colspan="6" class="empty">데이터를 불러오는 중입니다.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="seo-panel" aria-labelledby="seoTitle">
+        <h2 id="seoTitle">국내주식 급등주 확인 포인트</h2>
+        <p>
+          급등주는 단기간에 매수세가 몰리며 가격 변동성이 커진 종목입니다. 상승률과 현재가뿐 아니라 거래량,
+          시장 구분, 전일대비 금액을 함께 확인하면 KOSPI와 KOSDAQ의 주요 움직임을 더 빠르게 파악할 수 있습니다.
+        </p>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
